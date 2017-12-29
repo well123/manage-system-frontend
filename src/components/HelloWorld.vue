@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <el-button @click="flag = true">打开</el-button>
+    <message-box :parentFlag.sync="flag"></message-box>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
@@ -21,10 +23,15 @@
 </template>
 
 <script>
+import MessageBox from '@/components/MessageBox'
 export default {
+  components: {
+    MessageBox
+  },
   name: 'HelloWorld',
   data () {
     return {
+      flag: false,
       msg: 'Welcome to Your Vue.js App'
     }
   }
